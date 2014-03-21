@@ -1,0 +1,65 @@
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>Infinite Scroll Demo 3 - jQuery4u</title>
+  <meta http-equiv="Content-type" content="text/html;charset=UTF-8" />
+
+  <style type="text/css" media="screen">
+    * { margin: auto; }
+    body { background: #cee; font-family: Helvetica, Arial, Verdana, 'Lucida Grande', sans-serif; }
+    h1 { text-align: center; margin:20px; }
+    ul#list { width: 50px; height: 200px; overflow-y: scroll; }
+    ul#images { text-align: center; list-style: none; }
+  </style>
+
+  <script type="text/javascript" src="js/jquery.min.js"></script>
+
+  <!-- BuySellAds Ad Code -->
+  <link rel="stylesheet" href="bsa_styles.css" />
+  <script type="text/javascript" src="bsa_script.js"></script>
+  
+  <!-- End BuySellAds Ad Code -->
+
+
+  <script type="text/javascript" src="js/jquery.endless-scroll.js"></script>
+  <script type="text/javascript" charset="utf-8">
+    $(function() {
+      $(document).endlessScroll({
+        bottomPixels: 500,
+        fireDelay: 10,
+        callback: function(i) {
+          var last_img = $("ul#images li:last");
+          last_img.after(last_img.prev().prev().prev().prev().prev().prev().clone());
+        }
+      });
+    });
+  </script>
+
+</head>
+
+<body>
+
+  <h1>Infinite Scroll Demo 3</h1>
+
+
+  <ul id="images">
+    <li><img src="http://www.jquery4u.com/demos/infinite-scrolling-demo3/img/grass-blades.jpg" width="580" height="360" alt="Grass Blades" /></li>
+    <li><img src="http://www.jquery4u.com/demos/infinite-scrolling-demo3/img/stones.jpg" width="580" height="360" alt="Stones" /></li>
+    <li><img src="http://www.jquery4u.com/demos/infinite-scrolling-demo3/img/sea-mist.jpg" width="580" height="360" alt="Sea Mist" /></li>
+    <li><img src="http://www.jquery4u.com/demos/infinite-scrolling-demo3/img/pier.jpg" width="580" height="360" alt="Pier" /></li>
+    <li><img src="http://www.jquery4u.com/demos/infinite-scrolling-demo3/img/lotus.jpg" width="580" height="360" alt="Lotus" /></li>
+    <li><img src="http://www.jquery4u.com/demos/infinite-scrolling-demo3/img/mojave.jpg" width="580" height="360" alt="Mojave" /></li>
+    <li><img src="http://www.jquery4u.com/demos/infinite-scrolling-demo3/img/lightning.jpg" width="580" height="360" alt="Lightning" /></li>
+  </ul>
+
+
+<div id="footer" style="display:inline-block;width:100%;padding:10px;background-color:#FFFFFF">
+<p>Copyright <a target="_blank" href="http://www.sonyainc.net">Sonya Enterprises</a> 2014</p>
+</div>
+
+<script src="script.js"></script>
+
+
+</body>
+
+</html>
