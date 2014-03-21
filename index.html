@@ -3,16 +3,18 @@
 <head>
   <title>Infinite Scroll Demo 3 </title>
   <meta http-equiv="Content-type" content="text/html;charset=UTF-8" />
-
+  <link rel="stylesheet" href="//code.jquery.com/ui/1.10.4/themes/smoothness/jquery-ui.css">
   <style type="text/css" media="screen">
     * { margin: auto; }
-    body { background: #cee; font-family: Helvetica, Arial, Verdana, 'Lucida Grande', sans-serif; }
+    body { background: #000; font-family: Helvetica, Arial, Verdana, 'Lucida Grande', sans-serif; }
     h1 { text-align: center; margin:20px; }
     ul#list { width: 50px; height: 200px; overflow-y: scroll; }
     ul#images { text-align: center; list-style: none; }
+    img {cursor: pointer;}
   </style>
-
+ 
   <script type="text/javascript" src="js/jquery.min.js"></script>
+  <script src="//code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
 
   <script type="text/javascript" src="js/jquery.endless-scroll.js"></script>
   <script type="text/javascript" charset="utf-8">
@@ -25,7 +27,25 @@
           last_img.after(last_img.prev().prev().prev().prev().prev().prev().clone());
         }
       });
-    });
+    });//end function 
+
+    $(function() {
+      $( "#dialog" ).dialog({
+        autoOpen: false,
+        show: {
+          effect: "blind",
+          duration: 1000
+        },
+        hide: {
+          effect: "explode",
+          duration: 1000
+        }
+      });
+ 
+      $( "#opener" ).click(function() {
+        $( "#dialog" ).dialog( "open" );
+      });
+  });//end function
   </script>
   <!-- fixed header for title -->
   <style>
@@ -33,22 +53,35 @@
     width:100%;
     position:fixed;
     top:0px;
+
     }
     .header {
-        height:50px;
+        height:5em;
         background:#F0F0F0;
         border:1px solid #CCC;
         width:960px;
         margin:0px auto;
+        padding-top: 0.5em;
+        box-shadow: 10px 10px 5px #000;
+        background-image:url('images/header2.jpg');
+        background-repeat:none;
     }
 
+    #letterpress h3 {
+        text-shadow: 0px 1px 1px #4d4d4d;
+        color: #222;
+        font-size: 60px;
+        font-family:'Arial';
+}
   </style>
 
 </head>
 
 <body>
   <div class="header-cont">
-    <div class="header">Header goes here...</div>
+    <div class="header"> 
+      <center><div id="letterpress"><h3>Fashion Mag - 2014</h3></div></center>
+    </div>
   </div>
    
   <div></div>
@@ -57,22 +90,33 @@
 
 
   <ul id="images">
-    <li><img src="http://www.jquery4u.com/demos/infinite-scrolling-demo3/img/grass-blades.jpg" width="580" height="360" alt="Grass Blades" /></li>
-    <li><img src="http://www.jquery4u.com/demos/infinite-scrolling-demo3/img/stones.jpg" width="580" height="360" alt="Stones" /></li>
-    <li><img src="http://www.jquery4u.com/demos/infinite-scrolling-demo3/img/sea-mist.jpg" width="580" height="360" alt="Sea Mist" /></li>
-    <li><img src="http://www.jquery4u.com/demos/infinite-scrolling-demo3/img/pier.jpg" width="580" height="360" alt="Pier" /></li>
-    <li><img src="http://www.jquery4u.com/demos/infinite-scrolling-demo3/img/lotus.jpg" width="580" height="360" alt="Lotus" /></li>
-    <li><img src="http://www.jquery4u.com/demos/infinite-scrolling-demo3/img/mojave.jpg" width="580" height="360" alt="Mojave" /></li>
-    <li><img src="http://www.jquery4u.com/demos/infinite-scrolling-demo3/img/lightning.jpg" width="580" height="360" alt="Lightning" /></li>
+    <li><img src="images/1.jpg" width="100%" alt="Designer 1" /></li>
+    <li><img src="images/2.jpg" width="100%" alt="Designer 2" /></li>
+    <li><img src="images/3.jpg" width="100%" alt="Designer 3" /></li>
+    <li><img src="images/4.jpg" width="100%" alt="Designer 4" /></li>
+    <li><img src="images/5.jpg" width="100%" alt="Designer 5" /></li>
+    <li><img src="images/6.jpg" width="100%" alt="Designer 6" /></li>
+    <li><img src="images/7.jpg" width="100%" alt="Designer 7" /></li>
   </ul>
 
+<div id="dialog" title="Designer Fashion">
+  <h3> Designer: Jane Doe</h3><br/>
+  <p>This can contain any information you wish a about a particular item and task that you would like to perform.</p><br/>
+  <a href="https://www.paypal.com/">Buy Now!</a>
+</div>
 
 <div id="footer" style="display:inline-block;width:100%;padding:10px;background-color:#FFFFFF">
 <p>Copyright <a target="_blank" href="http://www.sonyainc.net">Sonya Enterprises</a> 2014</p>
 </div>
-
-<script src="script.js"></script>
-
+<script>
+  $(document).ready ( function() {
+    $('img').click(function() {
+       //alert("<h2> Iterm Discription </h2>")
+       $( "#dialog" ).dialog( "open" );
+    })
+   
+  })//end document ready
+</script>
 
 </body>
 
