@@ -12,7 +12,8 @@
     ul#images { text-align: center; list-style: none; }
   </style>
 
-  <script type="text/javascript" src="js/jquery.min.js"></script>
+<!--  <script type="text/javascript" src="js/jquery.min.js"></script> -->
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
 
   <script type="text/javascript" src="js/jquery.endless-scroll.js"></script>
   <script type="text/javascript" charset="utf-8">
@@ -27,10 +28,169 @@
       });
     });
   </script>
-
+  <!-- fixed header for title -->
+  <style>
+    .header-cont {
+    width:100%;
+    position:fixed;
+    top:0px;
+    }
+    .header {
+        height:50px;
+        background:#F0F0F0;
+        border:1px solid #CCC;
+        width:960px;
+        margin:0px auto;
+    }
+  </style>
+  <!-- add AirBnB side menuing -->
+<link href='airbnb/fly_sidemenu.css' rel='stylesheet' type='text/css'>
+<script type="text/javascript" src="airbnb/jquery.fly_sidemenu.js"></script>
+<style>
+/*  .main {
+    float: left;
+    width: 100%;
+    margin: 0 auto;
+    }
+    .main h1 {
+    padding: 20px 50px 10px;
+    float: left;
+    width: 100%;
+    font-size: 60px;
+    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    font-weight: 100;
+    margin: 0;
+    padding-top: 25px;
+    font-family: 'open sans';
+    letter-spacing: -3px;
+    text-transform: uppercase;
+    }
+    .main h1.demo1 {
+    background: #1ABC9C;
+    }
+    .reload.bell {
+    font-size: 12px;
+    padding: 20px;
+    width: 45px;
+    text-align: center;
+    height: 47px;
+    border-radius: 50px;
+    -webkit-border-radius: 50px;
+    -moz-border-radius: 50px;
+    }
+    .reload.bell #notification {
+    font-size: 25px;
+    line-height: 140%;
+    }
+    .reload, .btn {
+    display: inline-block;
+    border: 4px solid #A2261E;
+    border-radius: 5px;
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+    background: #CC3126;
+    display: inline-block;
+    line-height: 100%;
+    padding: 0.7em;
+    text-decoration: none;
+    color: #fff;
+    width: 100px;
+    line-height: 140%;
+    font-size: 17px;
+    font-family: open sans;
+    font-weight: bold;
+    }
+    .reload:hover {
+    background: #A2261E;
+    }
+    .btn {
+    width: 200px;
+    color: #fff;
+    border: none;
+    margin-left: 10px;
+    background: #00B0FF;
+    }
+    .clear {
+    width: auto;
+    }
+    .btn:hover, .btn:hover {
+    background: #00CDFF;
+    }
+    .btns {
+    width: 410px;
+    margin: 50px auto;
+    }
+    .credit {
+    background: #f6f6f6;
+    text-align: center;
+    color: #000;
+    padding: 10px;
+    margin: 0 0 40px 0;
+    float: left;
+    width: 100%;
+    letter-spacing: 1px;
+    }
+    .credit a {
+    color: #000;
+    text-decoration: none;
+    font-weight: bold;
+    }
+    .back {
+    position: absolute;
+    top: 0;
+    left: 0;
+    text-align: center;
+    display: block;
+    padding: 7px;
+    width: 100%;
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    background: #00B0FF;
+    font-weight: bold;
+    font-size: 13px;
+    color: #fff;
+    -webkit-transition: all 200ms ease-out;
+    -moz-transition: all 200ms ease-out;
+    -o-transition: all 200ms ease-out;
+    transition: all 200ms ease-out;
+    }
+    .back:hover {
+    background: #00CDFF;
+    }
+    .fsm-sidebar {
+    position: fixed;
+    }
+    .fsm-button {
+    font-size: 24px;
+    color: #000;
+    top: 36px;
+    line-height: 100%;
+    }
+    .page-container {
+    max-width: 700px;
+    margin: auto;
+    }
+    .page-container p {
+    font-size: 21px;
+    font-weight: 100;
+    line-height: 180%;
+    }
+    .page-container h3 {
+    font-family: "noto serif";
+    font-size: 23px;
+    } */
+</style>
 </head>
 
 <body>
+  <div class="header-cont">
+    <div class="header">Header goes here...</div>
+  </div>
+   
+  <div></div>
 
   <h1>Infinite Scroll Demo 3</h1>
 
@@ -44,13 +204,27 @@
     <li><img src="http://www.jquery4u.com/demos/infinite-scrolling-demo3/img/mojave.jpg" width="580" height="360" alt="Mojave" /></li>
     <li><img src="http://www.jquery4u.com/demos/infinite-scrolling-demo3/img/lightning.jpg" width="580" height="360" alt="Lightning" /></li>
   </ul>
+<!-- Open up memu -->
+  <ul class="sidemenu">
+    <li><a href="#">Details</a></li>
+    <li><a href="#">Designer</a></li>
+    <li><a href="#">Buy It</a></li>
+    <li><a href="#">Share</a></li>
+  </ul>
 
+  <script type="text/javascript" src="airbnb/jquery.fly_sidemenu.js"></script>
+  <script>
+      $(document).ready( function() {
+        $(".sidemenu").fly_sidemenu();
+      });
+      
+    </script>
 
 <div id="footer" style="display:inline-block;width:100%;padding:10px;background-color:#FFFFFF">
 <p>Copyright <a target="_blank" href="http://www.sonyainc.net">Sonya Enterprises</a> 2014</p>
 </div>
 
-<script src="script.js"></script>
+<!-- <script src="script.js"></script> -->
 
 
 </body>
